@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+
+  stage:
+    build:
+      context: stage/
+    volumes:
+      - type: volume
+        source: stage
+        target: /apps
+  prod:
+    build:
+      context: prod/
+    ports:
+      - "80:8080"
+    volumes:
+      - type: volume
+        source: stage
+        target: /opt/tomcat/webapps
+    depends_on:
+      - stage
+
+volumes:
+  stage:
