@@ -1,3 +1,3 @@
-FROM tomcat
+FROM tomcat:8.5.73-jre8-temurin-focal
 EXPOSE 8080
-CMD ["/opt/tomcat/bin/catalina.sh","run"]
+CMD ["catalina.sh" "run"]
