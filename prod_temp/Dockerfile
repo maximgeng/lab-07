@@ -1,7 +1,7 @@
-FROM davidcaste/alpine-java-unlimited-jce:%JVM_FLAVOUR%
+FROM davidcaste/alpine-java-unlimited-jce:jdk8
 
-ENV TOMCAT_MAJOR=%TOMCAT_MAJOR% \
-    TOMCAT_VERSION=%TOMCAT_VERSION% \
+ENV TOMCAT_MAJOR=8 \
+    TOMCAT_VERSION=8.5.3 \
     TOMCAT_HOME=/opt/tomcat \
     CATALINA_HOME=/opt/tomcat \
     CATALINA_OUT=/dev/null
@@ -18,4 +18,6 @@ RUN apk upgrade --update && \
 
 COPY logging.properties ${TOMCAT_HOME}/conf/logging.properties
 COPY server.xml ${TOMCAT_HOME}/conf/server.xml
+
+VOLUME ["/logs"]
 EXPOSE 8080
