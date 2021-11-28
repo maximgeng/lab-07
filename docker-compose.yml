@@ -20,6 +20,18 @@ services:
         target: /opt/tomcat/webapps
     depends_on:
       - stage
+ 
+  prod_temp:
+    build: 
+      context: prod_temp/
+    ports:
+      - "81:8080"
+    volumes:
+      - type: volume
+        source: stage
+        target: /opt/tomcat/webapps
+    depends_on:
+      - stage
 
 volumes:
   stage:
