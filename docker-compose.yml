@@ -17,7 +17,7 @@ services:
     volumes:
       - type: volume
         source: stage
-        target: /usr/local/tomcat/webapps/
+        target: /opt/tomcat/webapps
     depends_on:
       - stage
 
